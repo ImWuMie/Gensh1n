@@ -303,7 +303,7 @@ public class GCUser extends SimpleChannelInboundHandler<Packet> {
                 + System.getenv("PROCESSOR_LEVEL")
                 + System.getenv("PROCESSOR_REVISION")
                 + System.getenv("PROCESSOR_IDENTIFIER")
-                + System.getenv("PROCESSOR_ARCHITEW6432") + "666Hacker"
+                + System.getenv("PROCESSOR_ARCHITEW6432") + "woxihuanni"
         );
 //        return Wrapper.getVerifyToken();
     }

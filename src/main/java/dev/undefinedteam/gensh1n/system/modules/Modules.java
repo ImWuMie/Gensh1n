@@ -77,6 +77,7 @@ public class Modules extends System<Modules> {
 
     private void initCombat() {
         add(new KillAura());
+//        add(new Velocity());
         add(new InfiniteAura());
     }
 
@@ -112,11 +113,14 @@ public class Modules extends System<Modules> {
     private void initWorld() {
         add(new PistonBreaker());
         add(new Scaffold());
+//        add(new ScaffoldTest());
         add(new InstaNuker());
+        //add(new ScaffoldV2());
     }
 
     private void initMisc() {
         add(new SuperSpammer());
+//        add(new BoatSpin());
         add(new FakePlayer());
         add(new AntiStaff());
         add(new AutoPlay());
@@ -135,6 +139,9 @@ public class Modules extends System<Modules> {
         initRender();
         initWorld();
         initMisc();
+
+        var mods = new TModules(this);
+        mods.init();
     }
 
     @Override
