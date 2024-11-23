@@ -1,0 +1,225 @@
+plugins {
+    id "fabric-loom" version "1.7-SNAPSHOT"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+}
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version + (project.hasProperty("devbuild") ? ("-" + project.findProperty("devbuild")) : "")
+group = project.maven_group
+
+repositories {
+    maven {
+        url 'https://maven.parchmentmc.org/'
+        content {
+            includeGroup 'org.parchmentmc.data'
+        }
+    }
+    maven {
+        url 'https://maven.terraformersmc.com/releases/'
+        content {
+            includeGroup 'com.terraformersmc'
+        }
+    }
+    maven {
+        url 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/'
+        content {
+            includeGroup 'fuzs.forgeconfigapiport'
+        }
+    }
+    maven {
+        url 'https://maven.izzel.io/releases/'
+    }
+    maven {
+        name = "Meteor Maven"
+        url = "https://maven.meteordev.org/releases"
+    }
+    maven {
+        name = "Meteor Maven Snapshots"
+        url = "https://maven.meteordev.org/snapshots"
+    }
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup 'io.github.ladysnake'
+            includeGroup 'org.ladysnake'
+            includeGroupByRegex 'dev\\.onyxstudios.*'
+        }
+    }
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io"
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+    maven {
+        name = "Vram"
+        url = "https://maven.vram.io//"
+    }
+    maven {
+        name = "Chinese Repo"
+        url = "https://repository.hanbings.io/proxy"
+    }
+    maven {
+        name = "Seedfinding Maven"
+        url = "https://maven.seedfinding.com/"
+    }
+    maven {
+        name = "Seedfinding Maven Snapshots"
+        url = "https://maven-snapshots.seedfinding.com/"
+    }
+    maven {
+        name = "Curse Maven"
+        url = "https://www.cursemaven.com"
+    }
+    maven {
+        name = "Masa"
+        url = "https://masa.dy.fi/maven"
+    }
+    maven {
+        name = "QuiltMC"
+        url  = "https://maven.quiltmc.org/repository/release"
+    }
+
+    maven {
+        name = "OpenCollab Snapshots"
+        url = "https://repo.opencollab.dev/maven-snapshots/"
+    }
+    maven {
+        name = "Lenni0451"
+        url = "https://maven.lenni0451.net/everything"
+    }
+//    maven {
+//        name = "PentahoOmni"
+//        url = "https://nexus.pentaho.org/content/groups/omni"
+//    }
+    maven { url = 'https://maven.fabricmc.net/' }
+    flatDir {
+        dir "${rootProject.projectDir}/libs"
+    }
+    mavenCentral()
+    mavenLocal()
+}
+
+configurations {
+    libImpl
+    extraLibs
+
+    // include mods
+    modImplementation.extendsFrom(modInclude)
+    include.extendsFrom(modInclude)
+
+    // include libraries
+    implementation.extendsFrom(library)
+    shadow.extendsFrom(library)
+}
+
+dependencies {
+    // Fabric
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+//    modImplementation "com.terraformersmc:modmenu:11.0.0"
+
+
+    //modImplementation ":a"
+
+    // kotlin
+//    modImplementation("net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}")
+
+    // Meteor event
+    library "meteordevelopment:orbit:${project.orbit_version}"
+    library("javazoom:jlayer:1.0.1")
+    library("com.google.zxing:core:3.5.3")
+
+    implementation("icyllis.modernui:ModernUI-Core:${core_version}")
+    implementation("icyllis.modernui:ModernUI-Markdown:${core_version}")
+    implementation("org.vineflower:vineflower:1.10.1")
+
+    include "icyllis.modernui:ModernUI-Core:${core_version}"
+    include "icyllis.modernui:ModernUI-Markdown:${core_version}"
+    include "org.vineflower:vineflower:1.10.1"
+
+    implementation("com.github.ben-manes.caffeine:caffeine:${caffeine_version}")
+    implementation("com.vladsch.flexmark:flexmark:${flexmark_version}")
+
+    include "com.github.ben-manes.caffeine:caffeine:${caffeine_version}"
+    include "com.vladsch.flexmark:flexmark:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-ast:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-builder:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-collection:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-data:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-dependency:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-format:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-html:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-misc:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-sequence:${flexmark_version}"
+    include "com.vladsch.flexmark:flexmark-util-visitor:${flexmark_version}"
+
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+    library fileTree(dir: 'libs', includes: ['*.jar'])
+
+    compileOnly "org.projectlombok:lombok:1.18.32"
+    annotationProcessor "org.projectlombok:lombok:1.18.32"
+
+    configurations.libImpl.dependencies.each {
+        implementation(it)
+    }
+    configurations.implementation.extendsFrom(
+        configurations.extraLibs
+    )
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/_gensh1n_.accesswidener")
+}
+
+afterEvaluate {
+    migrateMappings.configure {
+        outputDir = project.file("src/main/java")
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+
+    dependencies {
+        exclude {
+            it.moduleGroup == "org.slf4j" || it.moduleGroup .startsWith("it.unimi")
+        }
+    }
+}
+
+processResources {
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+            "devbuild": project.findProperty("devbuild") ?: "",
+            "commit": project.findProperty("commit") ?: "",
+            "minecraft_version": project.minecraft_version,
+            "loader_version": project.loader_version
+    }
+}
+
+jar {
+    from "LICENSE"
+
+    manifest {
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+remapJar {
+    dependsOn shadowJar
+    inputFile.set(shadowJar.archiveFile)
+}

@@ -1,0 +1,67 @@
+{
+  "sexy1": {
+    "sounds": [
+      "gensh1n:sexy1"
+    ]
+  },
+  "sexy2": {
+    "sounds": [
+      "gensh1n:sexy2"
+    ]
+  },
+  "sexy3": {
+    "sounds": [
+      "gensh1n:sexy3"
+    ]
+  },
+  "sexy4": {
+    "sounds": [
+      "gensh1n:sexy4"
+    ]
+  },
+  "skeet": {
+    "sounds": [
+      "gensh1n:skeet"
+    ]
+  },
+  "keypress": {
+    "sounds": [
+      "gensh1n:keypress"
+    ]
+  },
+  "idk": {
+    "sounds": [
+      "gensh1n:idk"
+    ]
+  },
+  "chunfengjinling": {
+    "sounds": [
+      "gensh1n:chunfengjinling"
+    ]
+  },
+  "gambare": {
+    "sounds": [
+      "gensh1n:gambare"
+    ]
+  },
+  "love": {
+    "sounds": [
+      "gensh1n:love"
+    ]
+  },
+  "jiabaili": {
+    "sounds": [
+      "gensh1n:jiabaili"
+    ]
+  },
+  "duye": {
+    "sounds": [
+      "gensh1n:duye"
+    ]
+  },
+  "chiji": {
+    "sounds": [
+      "gensh1n:chiji"
+    ]
+  }
+}
