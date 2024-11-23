@@ -71,6 +71,7 @@ public class Genshin extends ModernUIMod implements ClientModInitializer {
         INSTANCE = this;
 
         try {
+            GChat.get();
 //            GChat.get().startClient(); 关闭irc
         } catch (Exception e) {
             e.printStackTrace();
