@@ -2,8 +2,6 @@ package dev.undefinedteam.gensh1n.mixins;
 
 import dev.undefinedteam.gensh1n.Client;
 import dev.undefinedteam.gensh1n.fakeplayer.FakePlayerEntity;
-import dev.undefinedteam.gensh1n.system.modules.Modules;
-import dev.undefinedteam.gensh1n.system.modules.render.Particles;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -11,20 +9,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Mixin(Entity.class)
 public abstract class MixinEntity {
-    @Unique
-    public List<Particles.Trail> trails = new ArrayList<>();
-
 
     @Shadow
     public static Vec3d movementInputToVelocity(Vec3d movementInput, float speed, float yaw) {

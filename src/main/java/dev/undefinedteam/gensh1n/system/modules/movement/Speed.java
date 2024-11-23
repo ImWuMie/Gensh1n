@@ -10,7 +10,6 @@ import dev.undefinedteam.gensh1n.system.modules.Category;
 import dev.undefinedteam.gensh1n.system.modules.Module;
 import dev.undefinedteam.gensh1n.system.modules.combat.KillAura;
 import dev.undefinedteam.gensh1n.system.modules.player.Blink;
-import dev.undefinedteam.gensh1n.system.modules.player.Blink2;
 import dev.undefinedteam.gensh1n.utils.entity.PlayerUtils;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.block.Block;
@@ -62,7 +61,7 @@ public class Speed extends Module {
     @EventHandler
     public void modifyVelocity(PlayerTravelEvent e) {
         if (!e.isPre() && timer.getPassedTimeMs() > 1000 && isMoving() && mode.get().equals(SpeedMode.Grim)) {
-            if (mc.player != null && (Blink.isFakePlayer(mc.player) || Blink2.isFakePlayer(mc.player))) {
+            if (mc.player != null && (Blink.isFakePlayer(mc.player))) {
                 return;
             }
             int collisions = 0;

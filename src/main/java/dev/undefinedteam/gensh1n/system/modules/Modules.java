@@ -79,7 +79,7 @@ public class Modules extends System<Modules> {
         add(new KillAura());
 //        add(new Velocity());
         add(new InfiniteAura());
-        add(new TrowableAura());
+//        add(new TrowableAura());
     }
 
     private void initPlayer() {
@@ -88,7 +88,7 @@ public class Modules extends System<Modules> {
         add(new AutoTool());
         add(new Stealer());
         add(new Blink());
-        add(new Blink2());
+//        add(new Blink2());
         add(new NoFall());
     }
 
@@ -96,12 +96,12 @@ public class Modules extends System<Modules> {
         add(new AutoClip());
         add(new BoatJump());
         add(new AntiWeb());
-        add(new GuiMove());
+//        add(new GuiMove());
         add(new MoveFix());
         add(new Sprint());
         add(new NoPush());
         add(new NoSlow());
-        add(new Speed());
+//        add(new Speed());
     }
 
     private void initRender() {
@@ -109,8 +109,8 @@ public class Modules extends System<Modules> {
         add(new NameProtect());
         add(new ItemPhysics());
         add(new FullBright());
-        add(new KillEffect());
-        add(new Particles());
+//        add(new KillEffect());
+//        add(new Particles());
         add(new HitSound());
         add(new DickESP());
         add(new ESP());
@@ -132,7 +132,7 @@ public class Modules extends System<Modules> {
         add(new AutoPlay());
         add(new Protocol());
         add(new AutoCalc());
-        add(new Disabler());
+//        add(new Disabler());
         add(new AntiBot());
         add(new Teams());
         add(new Debug());
