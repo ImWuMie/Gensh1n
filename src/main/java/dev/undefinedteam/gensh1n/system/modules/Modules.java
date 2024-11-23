@@ -77,7 +77,7 @@ public class Modules extends System<Modules> {
 
     private void initCombat() {
         add(new KillAura());
-        add(new Velocity());
+//        add(new Velocity());
         add(new InfiniteAura());
         add(new TrowableAura());
     }
