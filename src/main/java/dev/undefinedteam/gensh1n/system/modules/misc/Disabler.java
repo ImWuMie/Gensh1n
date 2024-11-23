@@ -46,26 +46,6 @@ public class Disabler extends Module {
                 pk.yaw = getRandomYaw(pk.yaw);
             }
         }
-        if (c0ffix.get() && System.currentTimeMillis() - lastLoadWorldTime >= 2000) {
-//            if (event.packet instanceof ConfirmTransactionC2SPacket packet) {
-//                if (!lastTickSentC0F) {
-//                    if (!c0fStorage.isEmpty()) {
-//                        c0fStorage.add(packet);
-//                        event.setCancelled(true);
-//
-//                        ClientPlayNetworkHandler networkHandler = mc.getNetworkHandler();
-//                        if (networkHandler != null) {
-//                            networkHandler.sendPacket(c0fStorage.poll());
-//                        }
-//                        lastTickSentC0F = true;
-//                    }
-//                } else {
-//                    c0fStorage.add(packet);
-//                    event.setCancelled(true);
-//                    info("multi c0f in 1 client tick, blink.");
-//                }
-//            }
-        }
     }
 
     @NativeObfuscation.Inline
